@@ -1,15 +1,20 @@
 package kr.co.chience.slidinguppanelex.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Switch;
 
 import kr.co.chience.slidinguppanelex.R;
+import kr.co.chience.slidinguppanelex.StartActivity;
 
 
 /**
@@ -17,6 +22,7 @@ import kr.co.chience.slidinguppanelex.R;
  */
 public class StartFragment extends Fragment {
 
+    Button start;
 
     public StartFragment() {
         // Required empty public constructor
@@ -27,7 +33,18 @@ public class StartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false);
+
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_start, container, false);
+        start = view.findViewById(R.id.start);
+
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), StartActivity.class));
+            }
+        });
+        return view;
     }
 
 }
