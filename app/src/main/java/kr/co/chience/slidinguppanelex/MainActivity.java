@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     SlidingUpPanelLayout layout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    LinearLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,20 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.myViewPager);
         layout = findViewById(R.id.slidingUp);
         layout.setAnchorPoint(0.4f);
+        mainLayout = findViewById(R.id.mainlayout);
 
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+
+        mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (layout.getPanelState() != SlidingUpPanelLayout.PanelState.COLLAPSED) {
+                    layout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+                }
+
+            }
+        });
 
     }
 
@@ -44,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(new HowFragment(), "호흡방법");
         viewPagerAdapter.addFragment(new ResultFragment(), "진단결과");
         viewPager.setAdapter(viewPagerAdapter);
-
 
     }
 
