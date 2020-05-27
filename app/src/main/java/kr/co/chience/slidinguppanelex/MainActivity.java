@@ -1,15 +1,11 @@
 package kr.co.chience.slidinguppanelex;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -19,12 +15,15 @@ import kr.co.chience.slidinguppanelex.fragment.HowFragment;
 import kr.co.chience.slidinguppanelex.fragment.ResultFragment;
 import kr.co.chience.slidinguppanelex.fragment.StartFragment;
 
+import static android.os.Trace.isEnabled;
+
 public class MainActivity extends AppCompatActivity {
 
     SlidingUpPanelLayout layout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     LinearLayout mainLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.myViewPager);
         layout = findViewById(R.id.slidingUp);
+
+
         layout.setAnchorPoint(0.4f);
         mainLayout = findViewById(R.id.mainlayout);
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onBackPressed() {
         if (layout != null &&
@@ -70,7 +71,5 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-
 
 }

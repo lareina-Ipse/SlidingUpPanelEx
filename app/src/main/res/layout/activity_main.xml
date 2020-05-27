@@ -11,6 +11,8 @@
     sothree:umanoOverlay="true"
     sothree:umanoPanelHeight="50dp"
     sothree:umanoShadowHeight="0dp"
+    app:umanoDragView="@id/dragView"
+    sothree:umanoScrollableView="@+id/myViewPager"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -29,6 +31,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/dragView"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         android:clipToPadding="false"
@@ -47,8 +50,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/minus"
-                />
+                android:src="@drawable/minus" />
 
         </LinearLayout>
 
@@ -58,15 +60,12 @@
             android:elevation="0dp"
             tools:ignore="ExtraText">
 
-
-
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:elevation="0dp">
-
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tablayout"
@@ -92,20 +91,16 @@
             </com.google.android.material.appbar.AppBarLayout>
 
 
-
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/myViewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:elevation="0dp"
+                android:focusable="false"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
-
     </LinearLayout>
-
-
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
